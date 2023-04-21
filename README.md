@@ -17,6 +17,8 @@ git clone https://$USERNAME:$TOKEN@github.com/$REPO_USER/$REPO_NAME
 ## Heplful commands
 
 Updating conda: `conda update -n base -c defaults conda`
+Installing new kernels for Jupyter: `python -m ipykernel install --user --name myenv --display-name "Python (myenv)"`
+Viewing installed kernels: `jupyter kernelspec list`
 
 ---
 
@@ -76,3 +78,14 @@ deltaCacheSize = 512m
 packSizeLimit = 512m
 
 windowMemory = 1024m
+
+
+_
+
+## General FAQ
+
+Q: How do I add my conda environment to jupyter?
+
+A: ipython kernel install --user --name=[YourCondaEnvName]
+
+
