@@ -1,7 +1,7 @@
 # Manuals -- FAQ
 
 
-## Github tokens
+## GitHub tokens
 One way to add token is thru .git/config
 
 Add in like:
@@ -80,7 +80,17 @@ packSizeLimit = 512m
 windowMemory = 1024m
 
 
+## i2c programming commands
+
+- sudo apt-get install i2c-tools
+- i2cdetect -y 1
+- https://github.com/mheidenreich/LCDDemo/
+- https://www.youtube.com/watch?v=DHbLBTRpTWM
+- sudo pip3 install rpi_lcd
+- https://www.circuitbasics.com/raspberry-pi-lcd-set-up-and-programming-in-python/
+
 _
+
 
 ## General FAQ
 
@@ -89,3 +99,6 @@ Q: How do I add my conda environment to jupyter?
 A: ipython kernel install --user --name=[YourCondaEnvName]
 
 
+Q: packages required for i2c programming
+
+A: asdf
