@@ -1,5 +1,14 @@
 # Manuals -- FAQ
 
+# vLLM
+Example command: `vllm serve  ./NousResearch_Hermes-3-Llama-3.1-8B/ --gpu_memory_utilization=0.9 --max_model_len=40000`
+
+# ollama
+- Show available models: `ollama list`
+- Pull new model: `ollama pull [MODELNAME]`
+  - E.g. `ollama pull llama3.1:8b-instruct-fp16`
+- Boot: `ollama run [MODELNAME]`
+- - E.g. `ollama run llama3.1:8b-instruct-fp16`
 
 ## GitHub tokens
 One way to add token is through .git/config
