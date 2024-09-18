@@ -103,6 +103,10 @@ To enable/disable inlay hints go to `settings`->`Editor`->`Code Style`->`Inlay H
   - `PID_CALIBRATE HEATER=heater_bed extruder=215`
   - `PID_CALIBRATE HEATER=heater_bed TARGET=55`
 
+
+## Nordvpn
+- Adding local network to whitelist: `nordvpn whitelist add subnet 192.168.0.0/24`
+
 ## General FAQ
 
 Q: How do I add my conda environment to jupyter?
@@ -116,3 +120,4 @@ A: asdf
 
 
 `python -c 'import torch;print(torch.cuda.device_count())'`conda config --set auto_activate_base false
+
