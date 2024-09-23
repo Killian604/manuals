@@ -118,6 +118,11 @@ Q: packages required for i2c programming
 
 A: asdf
 
+Q: What about [internet cxn that takes too long]?
+
+A: https://www.reddit.com/r/HomeServer/comments/1fmwgeh/why_does_this_take_so_long/
+
+
 
 `python -c 'import torch;print(torch.cuda.device_count())'`conda config --set auto_activate_base false
 
