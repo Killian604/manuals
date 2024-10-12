@@ -1,7 +1,28 @@
 # Manuals -- FAQ
 
+
+`huggingface-cli download meta-llama/Meta-Llama-3.1-8B-Instruct  --repo-type model --local-dir ./models/Meta-Llama-3.1-8B-Instruct/ --token $HFTOKEN  --exclude="*consolidate*"`
+
+
 # vLLM
 Example command: `vllm serve  ./NousResearch_Hermes-3-Llama-3.1-8B/ --gpu_memory_utilization=0.9 --max_model_len=40000`
+
+`vllm serve` routes
+Available routes are:
+INFO 09-14 11:23:04 launcher.py:28] Route: /openapi.json, Methods: GET, HEAD
+INFO 09-14 11:23:04 launcher.py:28] Route: /docs, Methods: GET, HEAD
+INFO 09-14 11:23:04 launcher.py:28] Route: /docs/oauth2-redirect, Methods: GET, HEAD
+INFO 09-14 11:23:04 launcher.py:28] Route: /redoc, Methods: GET, HEAD
+INFO 09-14 11:23:04 launcher.py:28] Route: /health, Methods: GET
+INFO 09-14 11:23:04 launcher.py:28] Route: /tokenize, Methods: POST
+INFO 09-14 11:23:04 launcher.py:28] Route: /detokenize, Methods: POST
+INFO 09-14 11:23:04 launcher.py:28] Route: /v1/models, Methods: GET
+INFO 09-14 11:23:04 launcher.py:28] Route: /version, Methods: GET
+INFO 09-14 11:23:04 launcher.py:28] Route: /v1/chat/completions, Methods: POST
+INFO 09-14 11:23:04 launcher.py:28] Route: /v1/completions, Methods: POST
+INFO 09-14 11:23:04 launcher.py:28] Route: /v1/embeddings, Methods: POST
+
+
 
 # ollama
 - Show available models: `ollama list`
@@ -125,4 +146,9 @@ A: https://www.reddit.com/r/HomeServer/comments/1fmwgeh/why_does_this_take_so_lo
 
 
 `python -c 'import torch;print(torch.cuda.device_count())'`conda config --set auto_activate_base false
+
+
+# SD
+https://github.com/lllyasviel/stable-diffusion-webui-forge/issues/1075
+
 
