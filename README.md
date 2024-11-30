@@ -1,4 +1,4 @@
-# Manuals -- FAQ
+.# Manuals -- FAQ
 
 
 `huggingface-cli download meta-llama/Meta-Llama-3.1-8B-Instruct  --repo-type model --local-dir ./models/Meta-Llama-3.1-8B-Instruct/ --token $HFTOKEN  --exclude="*consolidate*"`
@@ -109,6 +109,20 @@ _
 ---
 
 
+# Numpy
+
+
+## Visualizing segmented image results
+
+```python
+n_classes = 20
+inputdata_B_C_H_W = torch.randn(1, 3, 520, 720)
+out_b_cl_h_w = model(inputdata_B_C_H_W)
+predicted_classes_HW = torch.argmax(out_b_cl_h_w.squeeze(0), dim=0).cpu().numpy()  # Shape (H,W) with class value at every idx
+randomcolors_cl_RGB = np.random.randint(0, 255, size=(n_classes, 3))  # Shape (N_Classes, 3)
+segmented_mask_colourized = randomcolors_cl_RGB[predicted_classes_HW]  # (CL, 3)[H,W]=>(H,W,3)
+```
+
 # Pycharm
 To enable/disable inlay hints go to `settings`->`Editor`->`Code Style`->`Inlay Hints`
 - These are the inline hints that can be useful or not
@@ -152,3 +166,11 @@ A: https://www.reddit.com/r/HomeServer/comments/1fmwgeh/why_does_this_take_so_lo
 https://github.com/lllyasviel/stable-diffusion-webui-forge/issues/1075
 
 
+
+
+# VNC
+`vncserver :1`
+`vncserver :1 -geometry 1920x1080 -depth 24`
+`vncserver -kill :1`
+`nano ~/.vnc/xstartup`
+`vncpasswd`
