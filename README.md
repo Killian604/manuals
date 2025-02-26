@@ -1,5 +1,35 @@
-# Manuals -- FAQ
+.# Manuals -- FAQ
 
+
+`huggingface-cli download meta-llama/Meta-Llama-3.1-8B-Instruct  --repo-type model --local-dir ./models/Meta-Llama-3.1-8B-Instruct/ --token $HFTOKEN  --exclude="*consolidate*"`
+
+
+# vLLM
+Example command: `vllm serve  ./NousResearch_Hermes-3-Llama-3.1-8B/ --gpu_memory_utilization=0.9 --max_model_len=40000`
+
+`vllm serve` routes
+Available routes are:
+INFO 09-14 11:23:04 launcher.py:28] Route: /openapi.json, Methods: GET, HEAD
+INFO 09-14 11:23:04 launcher.py:28] Route: /docs, Methods: GET, HEAD
+INFO 09-14 11:23:04 launcher.py:28] Route: /docs/oauth2-redirect, Methods: GET, HEAD
+INFO 09-14 11:23:04 launcher.py:28] Route: /redoc, Methods: GET, HEAD
+INFO 09-14 11:23:04 launcher.py:28] Route: /health, Methods: GET
+INFO 09-14 11:23:04 launcher.py:28] Route: /tokenize, Methods: POST
+INFO 09-14 11:23:04 launcher.py:28] Route: /detokenize, Methods: POST
+INFO 09-14 11:23:04 launcher.py:28] Route: /v1/models, Methods: GET
+INFO 09-14 11:23:04 launcher.py:28] Route: /version, Methods: GET
+INFO 09-14 11:23:04 launcher.py:28] Route: /v1/chat/completions, Methods: POST
+INFO 09-14 11:23:04 launcher.py:28] Route: /v1/completions, Methods: POST
+INFO 09-14 11:23:04 launcher.py:28] Route: /v1/embeddings, Methods: POST
+
+
+
+# ollama
+- Show available models: `ollama list`
+- Pull new model: `ollama pull [MODELNAME]`
+  - E.g. `ollama pull llama3.1:8b-instruct-fp16`
+- Boot: `ollama run [MODELNAME]`
+- - E.g. `ollama run llama3.1:8b-instruct-fp16`
 
 ## GitHub tokens
 One way to add token is through .git/config
@@ -79,6 +109,20 @@ _
 ---
 
 
+# Numpy
+
+
+## Visualizing segmented image results
+
+```python
+n_classes = 20
+inputdata_B_C_H_W = torch.randn(1, 3, 520, 720)
+out_b_cl_h_w = model(inputdata_B_C_H_W)
+predicted_classes_HW = torch.argmax(out_b_cl_h_w.squeeze(0), dim=0).cpu().numpy()  # Shape (H,W) with class value at every idx
+randomcolors_cl_RGB = np.random.randint(0, 255, size=(n_classes, 3))  # Shape (N_Classes, 3)
+segmented_mask_colourized = randomcolors_cl_RGB[predicted_classes_HW]  # (CL, 3)[H,W]=>(H,W,3)
+```
+
 # Pycharm
 To enable/disable inlay hints go to `settings`->`Editor`->`Code Style`->`Inlay Hints`
 - These are the inline hints that can be useful or not
@@ -113,6 +157,10 @@ Additional settings I always use for print stability and avoiding warping, espec
     Brim-object gap: 0.3mm
 
 
+## Nordvpn
+
+- Adding local network to whitelist: `nordvpn whitelist add subnet 192.168.0.0/24`
+
 ## General FAQ
 
 Q: How do I add my conda environment to jupyter?
@@ -124,8 +172,23 @@ Q: packages required for i2c programming
 
 A: asdf
 
+Q: What about [internet cxn that takes too long]?
+
+A: https://www.reddit.com/r/HomeServer/comments/1fmwgeh/why_does_this_take_so_long/
+
+
 
 `python -c 'import torch;print(torch.cuda.device_count())'`conda config --set auto_activate_base false
 
 
 
+# SD
+https://github.com/lllyasviel/stable-diffusion-webui-forge/issues/1075
+
+
+# VNC
+`vncserver :1`
+`vncserver :1 -geometry 1920x1080 -depth 24`
+`vncserver -kill :1`
+`nano ~/.vnc/xstartup`
+`vncpasswd`
