@@ -94,6 +94,25 @@ To enable/disable inlay hints go to `settings`->`Editor`->`Code Style`->`Inlay H
   - `PID_CALIBRATE HEATER=heater_bed extruder=215`
   - `PID_CALIBRATE HEATER=heater_bed TARGET=55`
 
+
+    Line width for supports (in Quality settings): 'Around 50%' of what your main line width is (eg: set it to 0.25mm on a 0.4mm nozzle printing at 0.42mm line width) - THIS IS A KEY SETTING - UPDATE For 0.2mm nozzles do not change this setting it's already good and setting it any thinner will cause issues!
+    Type: Tree (auto) - (I use this on average but it depends on the model so experiment with each type depending on your needs)
+    Style: Tree Organic or Slim - (I use these on average but it depends on the model so experiment with each type depending on your needs)
+    Top Z distance: 0.25mm
+    Bottom Z distance: 0.2mm
+    Base pattern spacing: 2.5mm
+    Base Pattern: Hollow. - THIS IS A KEY SETTING
+    Top interface layers: 3
+    Bottom interface layers: 2
+    Top interface spacing: 0.7mm
+
+Additional settings I always use for print stability and avoiding warping, especially for longer-length prints or that are located on build plate edges. The brim keeps the print stable and comes off super easily
+
+    Brim type: Outer brim only
+    Brim width: 3mm
+    Brim-object gap: 0.3mm
+
+
 ## General FAQ
 
 Q: How do I add my conda environment to jupyter?
@@ -107,3 +126,6 @@ A: asdf
 
 
 `python -c 'import torch;print(torch.cuda.device_count())'`conda config --set auto_activate_base false
+
+
+
